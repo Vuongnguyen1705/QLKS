@@ -1,0 +1,86 @@
+﻿<Window x:Class="QuanLyKhachSan.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyKhachSan"
+        mc:Ignorable="d"
+        xmlns:uc="clr-namespace:QuanLyKhachSan.UserControlQLKS"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="Đăng nhập" Height="500" Width="700">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <Label Content="QUẢN LÝ KHÁCH SẠN" FontSize="50" Foreground="black" HorizontalAlignment="Center" VerticalAlignment="Center"></Label>
+        </Grid>
+        <materialDesign:Card Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid Width="444" Height="250">
+                <Grid.Resources>
+                    <Style TargetType="Grid">
+                        <Setter Property="Margin" Value="15 15 15 0"></Setter>
+                    </Style>
+                </Grid.Resources>
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Label Content="Đăng Nhập" FontSize="30" FontWeight="Bold" Foreground="#46CEFC" HorizontalAlignment="Center"></Label>
+                <Grid Grid.Row="1">
+                    <TextBox 
+                        x:Name="TenDangNhap"
+                        materialDesign:HintAssist.Hint="Tên đăng nhập"
+                        Style="{StaticResource MaterialDesignFloatingHintTextBox}"  
+                    />
+                </Grid>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="96*"/>
+                        <ColumnDefinition Width="319*"/>
+                    </Grid.ColumnDefinitions>
+                    <PasswordBox
+                        PasswordChar="*"
+                        x:Name="MatKhau" 
+                        materialDesign:HintAssist.Hint="Mật khẩu"
+                        Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Grid.ColumnSpan="2" 
+                    />
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        Width="100"
+                        Content="Đăng nhập"
+                        Background="#46CEFC "
+                        ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="Button_Login"
+                    >
+                    </Button>
+                    <Button Grid.Column="1"
+                        Style="{StaticResource MaterialDesignRaisedDarkButton}"
+                        Width="100"
+                        Content="Thoát"
+                        Background="Red"
+                        ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Click="Button_Thoat"
+                    >
+                    </Button>
+                    
+                </Grid>
+            </Grid>
+        </materialDesign:Card>
+        
+    </Grid>
+</Window>

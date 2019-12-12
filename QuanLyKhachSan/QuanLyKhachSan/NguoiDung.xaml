@@ -1,0 +1,71 @@
+﻿<Window x:Class="QuanLyKhachSan.NguoiDung"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuanLyKhachSan"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="13"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+        Title="NguoiDung" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition Height="auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <!--các element binding từ selected item-->
+            <materialDesign:Card Grid.Row="0" Margin="5">
+                <WrapPanel Margin="0 0 0 10">
+                    <TextBox x:Name="tentk" Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tên Tài Khoản" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="matkhau" Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mật Khẩu" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="quyen" Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Quyền" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="tinhtrang" Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Tình Trạng" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                    <TextBox x:Name="manhanvien" Text="{Binding Count, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" materialDesign:HintAssist.Hint="Mã Nhân Viên" Style="{StaticResource MaterialDesignFloatingHintTextBox}" />
+                </WrapPanel>
+            </materialDesign:Card>
+
+            <materialDesign:Card Grid.Row="1" Margin="5">
+                <WrapPanel>
+                    <Button Mouse.PreviewMouseUp="Button_Them" Command="{Binding AddCommand}" Content="Thêm" Margin="5" Width="100"></Button>
+                    <Button Mouse.PreviewMouseUp="Button_Sua" Command="{Binding EditCommand}" Content="Sửa" Margin="5" Width="100" ></Button>
+                    <Button Mouse.PreviewMouseUp="Button_Xoa" Command="{Binding DeleteCommand}" Content="Xóa" Margin="5" Width="100"></Button>
+                </WrapPanel>
+            </materialDesign:Card>
+
+            <materialDesign:Card Grid.Row="2" Margin="5" VerticalAlignment="Stretch">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView ItemsSource="{Binding List}" Mouse.PreviewMouseUp="TableNguoiDung_PreviewMouseUp" SelectedItem="{Binding SelectedItem, Mode=OneWayToSource}" Name="TableNguoiDung">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="auto" Header="Mã Tài Khoản" DisplayMemberBinding="{Binding MaTaiKhoan}"></GridViewColumn>
+                                <GridViewColumn Width="auto" Header="Tên Tài Khoản" DisplayMemberBinding="{Binding TenTaiKhoan}"></GridViewColumn>
+                                <GridViewColumn Width="auto" Header="Mật Khẩu" DisplayMemberBinding="{Binding MatKhau}"></GridViewColumn>
+                                <GridViewColumn Width="auto" Header="Quyền" DisplayMemberBinding="{Binding Quyen}"></GridViewColumn>
+                                <GridViewColumn Width="auto" Header="Tình Trạng" DisplayMemberBinding="{Binding TinhTrang}"></GridViewColumn>
+                                <GridViewColumn Width="auto" Header="Mã Nhân Viên" DisplayMemberBinding="{Binding MaNV}"></GridViewColumn>
+                            </GridView>
+                        </ListView.View>
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                
+                            </Style>
+                        </ListView.ItemContainerStyle>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+    </Grid>
+</Window>
