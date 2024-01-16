@@ -9,7 +9,7 @@
   <ItemGroup>
     <PackageReference Include="EFCore.BulkExtensions" Version="3.0.4" />
     <PackageReference Include="MaterialDesignThemes" Version="2.6.0" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 
 </Project>
